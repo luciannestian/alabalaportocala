@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/main.cpp" "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/cmake-build-debug/CMakeFiles/dirent_system_tools.dir/main.cpp.obj"
-  "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/source.cpp" "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/cmake-build-debug/CMakeFiles/dirent_system_tools.dir/source.cpp.obj"
+  "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/main.cpp" "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/cmake-build-debug/CMakeFiles/dirent_system_tools.dir/main.cpp.obj"
+  "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/source.cpp" "C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/cmake-build-debug/CMakeFiles/dirent_system_tools.dir/source.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

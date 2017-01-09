@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/header.h
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/header.h
 dirent.h
 -
 iostream
@@ -19,12 +19,14 @@ typeinfo
 -
 vector
 -
+cstring
+-
 
-C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/main.cpp
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/main.cpp
 header.h
-C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/header.h
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/header.h
 
-C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/source.cpp
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/source.cpp
 header.h
-C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools/header.h
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent system tools WIN/header.h
 

@@ -1,5 +1,6 @@
 #include "header.h"
 #define arraysize(ar)  (sizeof(ar) / sizeof(ar[0]))
+
 void ls(DIR *dir)
 {
     //ls
@@ -67,4 +68,77 @@ void cat(string fisiere[100],int nr_fisiere) {
 
     output.close();
 
+}
+
+
+
+vector <string> listaFolder(DIR *directorOarecare,string numeDirector)
+{
+    //ls
+    string slashKey="\\";///depinde de platforma
+
+    vector <string> lista;
+    //numeDirector.erase(numeDirector.end()-1);
+    dirent *end;
+    int indiceFisier=0;
+
+    if ( directorOarecare != NULL) {
+        end= readdir (directorOarecare);
+        while (end  != NULL) {
+            lista.push_back(numeDirector);
+           // strcat(lista[indiceFisier],slashKey);
+            lista[indiceFisier]+=slashKey;
+            string x=end->d_name;
+
+            lista[indiceFisier++]+=x;
+            //strcat(lista[indiceFisier],end->d_name);
+            end = readdir(directorOarecare);
+        }
+        closedir (directorOarecare);
+    }
+
+    return lista;
+}
+
+string numeDinLocatie(string nume)
+{
+    string x;
+    //"C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1";
+    size_t found=nume.rfind("\\");
+    string nou=nume.substr(found+1);
+    // cout<<nou;
+    return nou;
+}
+
+bool esteNumeValid(string input,string pathFisier)
+{
+    string numeFisier=numeDinLocatie(pathFisier);
+    if(input==numeFisier)
+        return 1;
+    int existaSteluta =input.find("*");
+    if(existaSteluta==-1)
+        return 0;
+    if(existaSteluta==0)
+    {
+        string inputFaraSteluta;
+
+    }
+    if(existaSteluta==input.length())
+    {
+        string inputFaraSteluta;
+    }
+}
+
+void Deschidere(vector <string> listaFisiere)
+{
+    DIR *director;
+    for(int i=0;i<listaFisiere.size();i++)
+    {
+        char * sir = new char[listaFisiere[i].length() + 1];
+        strcpy(sir,listaFisiere[i].c_str());
+        cout<<sir<<" ";
+        cout<<numeDinLocatie(listaFisiere[i])<<"\n";
+    }
+
+  // director=opendir(listaFisiere[0]);
 }

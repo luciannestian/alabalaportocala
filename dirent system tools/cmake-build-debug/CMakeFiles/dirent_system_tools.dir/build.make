@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\JetBrains\CLion 2016.2.3\bin\cmake\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools"
+CMAKE_SOURCE_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/dirent_system_tools.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/dirent_system_tools.dir/flags.make
 
 CMakeFiles/dirent_system_tools.dir/main.cpp.obj: CMakeFiles/dirent_system_tools.dir/flags.make
 CMakeFiles/dirent_system_tools.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dirent_system_tools.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\dirent_system_tools.dir\main.cpp.obj -c "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dirent_system_tools.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\dirent_system_tools.dir\main.cpp.obj -c "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\main.cpp"
 
 CMakeFiles/dirent_system_tools.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dirent_system_tools.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\main.cpp" > CMakeFiles\dirent_system_tools.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\main.cpp" > CMakeFiles\dirent_system_tools.dir\main.cpp.i
 
 CMakeFiles/dirent_system_tools.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dirent_system_tools.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\main.cpp" -o CMakeFiles\dirent_system_tools.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\main.cpp" -o CMakeFiles\dirent_system_tools.dir\main.cpp.s
 
 CMakeFiles/dirent_system_tools.dir/main.cpp.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/dirent_system_tools.dir/main.cpp.obj.provides.build: CMakeFiles/diren
 
 CMakeFiles/dirent_system_tools.dir/source.cpp.obj: CMakeFiles/dirent_system_tools.dir/flags.make
 CMakeFiles/dirent_system_tools.dir/source.cpp.obj: ../source.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dirent_system_tools.dir/source.cpp.obj"
-	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\dirent_system_tools.dir\source.cpp.obj -c "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\source.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dirent_system_tools.dir/source.cpp.obj"
+	C:\MinGW\bin\g++.exe   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\dirent_system_tools.dir\source.cpp.obj -c "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\source.cpp"
 
 CMakeFiles/dirent_system_tools.dir/source.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dirent_system_tools.dir/source.cpp.i"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\source.cpp" > CMakeFiles\dirent_system_tools.dir\source.cpp.i
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\source.cpp" > CMakeFiles\dirent_system_tools.dir\source.cpp.i
 
 CMakeFiles/dirent_system_tools.dir/source.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dirent_system_tools.dir/source.cpp.s"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\source.cpp" -o CMakeFiles\dirent_system_tools.dir\source.cpp.s
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\source.cpp" -o CMakeFiles\dirent_system_tools.dir\source.cpp.s
 
 CMakeFiles/dirent_system_tools.dir/source.cpp.obj.requires:
 
@@ -118,7 +118,7 @@ dirent_system_tools.exe: CMakeFiles/dirent_system_tools.dir/build.make
 dirent_system_tools.exe: CMakeFiles/dirent_system_tools.dir/linklibs.rsp
 dirent_system_tools.exe: CMakeFiles/dirent_system_tools.dir/objects1.rsp
 dirent_system_tools.exe: CMakeFiles/dirent_system_tools.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable dirent_system_tools.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable dirent_system_tools.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\dirent_system_tools.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -136,6 +136,6 @@ CMakeFiles/dirent_system_tools.dir/clean:
 .PHONY : CMakeFiles/dirent_system_tools.dir/clean
 
 CMakeFiles/dirent_system_tools.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools\cmake-build-debug\CMakeFiles\dirent_system_tools.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles\dirent_system_tools.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/dirent_system_tools.dir/depend
 

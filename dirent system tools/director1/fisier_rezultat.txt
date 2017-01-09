@@ -1,0 +1,7 @@
+empty
+ceva scris
+pe
+mai
+multe
+linii
+\n

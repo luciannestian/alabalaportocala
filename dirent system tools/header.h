@@ -9,6 +9,7 @@
 #include <string>
 #include <typeinfo>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 
@@ -18,3 +19,6 @@ void ls(DIR *);
 
 void cat(string fisiere[100],int );
 
+vector <string> listaFolder(DIR *directorOarecare,string numeDirector);
+
+void  Deschidere(vector<string>);
