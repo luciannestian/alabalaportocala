@@ -1,15 +1,27 @@
-#include "header.h"
+#include <iostream>
+#include <fstream>
 
+using namespace std;
 
-int main() {
-    //ls(opendir("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1"));
-    //cout<<"\n sfarsit ls \n";
+void copyFile()
+{
+    char fpath[256], npath[256];
 
-    string a[100]={"file2","are","file1"};
-  /*  cout<<a->length()<<"\n";
-    for(int i=0;i<a->length();i++)
-        cout<<a[i].length()<< " ";*/
-    cat(a,3);
-    //directorul_curent=opendir("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1");
+    cout << "File Path: "; cin >> fpath;
+    cout << "New Path (+ old/new name): "; cin >> npath;
+
+    ifstream source(fpath, ios::binary);
+    ofstream dest(npath, ios::binary);
+
+    dest << source.rdbuf();
+
+    source.close();
+    dest.close();
+}
+
+int main()
+{
+    copyFile();
+
     return 0;
 }
