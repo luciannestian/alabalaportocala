@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
+#include <dirent.h>
 
 using namespace std;
 
@@ -10,6 +11,47 @@ void cp();
 void grep();
 
     char command[256];
+
+void Find(DIR *dir)
+{
+    dirent *e;
+
+    char aux[256];
+
+    if(dir != NULL)
+    {
+        e = readdir(dir);
+        while(e != NULL)
+        {
+            cout << e->d_name << "  ";
+            if(strcmp(e->d_name, "myText.txt") == 0)
+            {
+                string path(dir->dd_name);
+                cout << path;
+                cout << "\n";
+                ifstream f;
+                f.open("myText.txt");
+                if(f.is_open())
+                {
+                    while(!f.eof())
+                    {
+                        f.getline(aux, 256);
+                        cout << aux << " ";
+                    }
+                }
+                else ;
+                while(f)
+                {
+                    f.getline(aux, 256);
+                    cout << "\n" << aux << "\n";
+                }
+            }
+            e = readdir(dir);
+        }
+    }
+    else ;
+
+}
 
 void grep()
 {
@@ -44,18 +86,34 @@ void grep()
                         stringFound = true;
                         cout << n << "\n";
                     }
-                ++n;
                 }
+                ++n;
             }
         else
             if(strcmp(subFunc, "-y") == 0)
             {
-                ;
+                strlwr(myString);
+                while(myFile)
+                {
+                    myFile.getline(read, 256);
+                    strlwr(read);
+                    if(strstr(read, myString))
+                    {
+                        stringFound = true;
+                    }
+                }
             }
             else
                 if(strcmp(subFunc, "-l") == 0)
                 {
-                    ;
+                    while(myFile)
+                    {
+                        myFile.getline(read, 256);
+                        if(strstr(read, myString))
+                        {
+                            stringFound = true;
+                        }
+                    }
                 }
         if(stringFound == true)
             cout << "myText.txt";
@@ -68,6 +126,19 @@ void grep()
 
 int main()
 {
+
+    DIR *dir;
+/*
+    cout << "\nDirectory C\n";
+    dir = opendir("C:\\");
+    Find(dir, d);
+*/
+    cout << "\n\nDirectory D\n";
+    dir = opendir("D:\\");
+    Find(dir);
+    //Find("D:\\");
+
+    /*
     cin.getline(command, 256);
 
     char *p, myFunc[256];
@@ -81,6 +152,7 @@ int main()
     if(strcmp(myFunc, "grep") == 0)
         grep();
     else ;
+    */
 
     return 0;
 }
