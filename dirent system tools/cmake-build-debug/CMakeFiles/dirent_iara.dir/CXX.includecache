@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent iara/header.h
+dirent.h
+-
+iostream
+-
+fstream
+-
+string
+-
+typeinfo
+-
+vector
+-
+cstring
+-
+
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent iara/main.cpp
+header.h
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent iara/header.h
+
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent iara/source.cpp
+header.h
+C:/Users/aditi/OneDrive/Documents/CLion Projects/dirent iara/header.h
+

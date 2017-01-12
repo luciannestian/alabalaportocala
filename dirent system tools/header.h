@@ -1,6 +1,5 @@
 #ifndef DIRENT_SYSTEM_TOOLS_HEADER_H
 #define DIRENT_SYSTEM_TOOLS_HEADER_H
-
 #endif //DIRENT_SYSTEM_TOOLS_HEADER_H
 
 #include <dirent.h>
@@ -13,6 +12,17 @@
 
 using namespace std;
 
+//string backslash;
+
+/*
+#ifdef OS_WINDOWS
+    backslash="\\";
+#else
+    string backslash="/";
+//define it for a Unix machine
+#endif
+*/
+
 //DIR *directorul_curent;
 
 void ls(DIR *);
@@ -21,4 +31,13 @@ void cat(string fisiere[100],int );
 
 vector <string> listaFolder(DIR *directorOarecare,string numeDirector);
 
-void  Deschidere(vector<string>);
+void  VerificareApartineFolder(vector<string>,string,string);
+
+string numeDinLocatie(string nume);
+
+bool esteNumeValid(string input,string pathFisier);
+
+void Parcurgere(char *,string);
+
+void ParcurgerePanaLaNivelulX(char *,string , int );
+

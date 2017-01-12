@@ -47,24 +47,13 @@ RM = "C:\Program Files (x86)\JetBrains\CLion 2016.2.3\bin\cmake\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN"
+CMAKE_SOURCE_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent iara"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent iara\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files (x86)\JetBrains\CLion 2016.2.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -77,11 +66,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	"C:\Program Files (x86)\JetBrains\CLion 2016.2.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent iara\cmake-build-debug\CMakeFiles" "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent iara\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent system tools WIN\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aditi\OneDrive\Documents\CLion Projects\dirent iara\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named dirent_system_tools
+# Target rules for targets named dirent_iara
 
 # Build rule for target.
-dirent_system_tools: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 dirent_system_tools
-.PHONY : dirent_system_tools
+dirent_iara: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 dirent_iara
+.PHONY : dirent_iara
 
 # fast build rule for target.
-dirent_system_tools/fast:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/build
-.PHONY : dirent_system_tools/fast
+dirent_iara/fast:
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/build
+.PHONY : dirent_iara/fast
 
 main.obj: main.cpp.obj
 
@@ -128,7 +128,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -137,7 +137,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -146,7 +146,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 source.obj: source.cpp.obj
@@ -155,7 +155,7 @@ source.obj: source.cpp.obj
 
 # target to build an object file
 source.cpp.obj:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/source.cpp.obj
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/source.cpp.obj
 .PHONY : source.cpp.obj
 
 source.i: source.cpp.i
@@ -164,7 +164,7 @@ source.i: source.cpp.i
 
 # target to preprocess a source file
 source.cpp.i:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/source.cpp.i
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/source.cpp.i
 .PHONY : source.cpp.i
 
 source.s: source.cpp.s
@@ -173,7 +173,7 @@ source.s: source.cpp.s
 
 # target to generate assembly for a file
 source.cpp.s:
-	$(MAKE) -f CMakeFiles\dirent_system_tools.dir\build.make CMakeFiles/dirent_system_tools.dir/source.cpp.s
+	$(MAKE) -f CMakeFiles\dirent_iara.dir\build.make CMakeFiles/dirent_iara.dir/source.cpp.s
 .PHONY : source.cpp.s
 
 # Help Target
@@ -182,9 +182,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... dirent_system_tools
-	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... dirent_iara
+	@echo ... edit_cache
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
