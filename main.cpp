@@ -53,106 +53,125 @@ void Find(DIR *dir)
 
 }
 
-void grep()
+bool Extensie(char ext[])
 {
+    int i;
+    for(i = 0; ext[i+1]; ++i)
+        if(ext[i] == '.')
+            return true;
+    return false;
+}
+
+void grep(DIR *dir)
+{
+//extract info
+    char pattern[256], subfunc[256];
+    //char filename[256];
     char *p;
-    p = strchr(command, '"');
-    char myString[256], subFunc[256];
-    strcpy(myString, p + 1);
-    p = strchr(myString, '"');
-    *p = 0;
+
+//pattern && subfuntion && filename
     p = strchr(command, '-');
-    strcpy(subFunc, p);
-    p = strchr(subFunc, ' ');
+    strcpy(subfunc, p);
+    p = strchr(subfunc, ' ');
     *p = 0;
 
-    ifstream myFile("D:\\myText.txt", ios::binary);
+    p = strchr(command, '"');
+    strcpy(pattern, p + 1);
+    p = strchr(pattern, '"');
+    //strcpy(filename, p + 2);
+    *p = 0;
 
-    unsigned int n = 0;
-    char read[256];
+    dirent *e;
+    char myDir[256];
+    strcpy(myDir, dir->dd_name);
+    myDir[3] = myDir[2]; // copy '\' to '*'
+    int len = strlen(myDir);
+    char line[256];
+    int n;
+    bool found;
 
-    if(!myFile)
-        cout << "File not found.";
-    else
+    if(dir != NULL)
     {
-        bool stringFound = false;
-        if(strcmp(subFunc, "-n") == 0)
+        if(strcmp(subfunc, "-n") == 0)
+        {
+            e = readdir(dir);
+            while(e != NULL)
             {
-                while(myFile)
+                if(Extensie(e->d_name))
                 {
-                    myFile.getline(read, 256);
-                    if(strstr(read, myString))
+                    myDir[len] = 0;
+                    found = false;
+                    n = 0;
+                    strcat(myDir, e->d_name);
+                    myDir[3] = myDir[2];
+                    ifstream f(myDir);
+                    //if(f)
+                        //cout << myDir << " ";
+                    while(f)
                     {
-                        stringFound = true;
-                        cout << n << "\n";
-                    }
-                }
-                ++n;
-            }
-        else
-            if(strcmp(subFunc, "-y") == 0)
-            {
-                strlwr(myString);
-                while(myFile)
-                {
-                    myFile.getline(read, 256);
-                    strlwr(read);
-                    if(strstr(read, myString))
-                    {
-                        stringFound = true;
-                    }
-                }
-            }
-            else
-                if(strcmp(subFunc, "-l") == 0)
-                {
-                    while(myFile)
-                    {
-                        myFile.getline(read, 256);
-                        if(strstr(read, myString))
+                        f.getline(line, 256);
+                        if(strstr(line, pattern))
                         {
-                            stringFound = true;
+                            cout << n << "\n";
+                            found = true;
+                        }
+                    ++n;
+                    }
+                    if(found == true)
+                        cout << e->d_name << "\n";
+                }
+            e = readdir(dir);
+            }
+        }
+        else
+            if(strcmp(subfunc, "-y") == 0)
+        {
+            e = readdir(dir);
+            while(e != NULL)
+            {
+                if(Extensie(e->d_name))
+                {
+                    strlwr(pattern);
+                    myDir[len] = 0;
+                    found = false;
+                    strcat(myDir, e->d_name);
+                    myDir[3] = myDir[2];
+                    ifstream f(myDir);
+                    //if(f)
+                        //cout << myDir << " ";
+                    while(f)
+                    {
+                        f.getline(line, 256);
+                        strlwr(line);
+                        if(strstr(line, pattern))
+                        {
+                            found = true;
                         }
                     }
+                    if(found == true)
+                        cout << e->d_name << "\n";
                 }
-        if(stringFound == true)
-            cout << "myText.txt";
-        else
-            cout << "String not found.";
+            e = readdir(dir);
+            }
+        }
+
+    }
+    else
+    {
+        perror("Unable to open dir.");
+        return ;
     }
 
 }
 
-
 int main()
 {
-
     DIR *dir;
-/*
-    cout << "\nDirectory C\n";
-    dir = opendir("C:\\");
-    Find(dir, d);
-*/
-    cout << "\n\nDirectory D\n";
     dir = opendir("D:\\");
-    Find(dir);
-    //Find("D:\\");
 
-    /*
     cin.getline(command, 256);
 
-    char *p, myFunc[256];
-    strcpy(myFunc, command);
-
-    int i = 0;
-    while(myFunc[i] != ' ')
-        ++i;
-    myFunc[i] = 0;
-
-    if(strcmp(myFunc, "grep") == 0)
-        grep();
-    else ;
-    */
+    grep(dir);
 
     return 0;
 }
