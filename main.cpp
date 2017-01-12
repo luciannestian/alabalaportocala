@@ -125,35 +125,64 @@ void grep(DIR *dir)
         }
         else
             if(strcmp(subfunc, "-y") == 0)
-        {
-            e = readdir(dir);
-            while(e != NULL)
             {
-                if(Extensie(e->d_name))
+                e = readdir(dir);
+                while(e != NULL)
                 {
-                    strlwr(pattern);
-                    myDir[len] = 0;
-                    found = false;
-                    strcat(myDir, e->d_name);
-                    myDir[3] = myDir[2];
-                    ifstream f(myDir);
-                    //if(f)
-                        //cout << myDir << " ";
-                    while(f)
+                    if(Extensie(e->d_name))
                     {
-                        f.getline(line, 256);
-                        strlwr(line);
-                        if(strstr(line, pattern))
+                        strlwr(pattern);
+                        myDir[len] = 0;
+                        found = false;
+                        strcat(myDir, e->d_name);
+                        myDir[3] = myDir[2];
+                        ifstream f(myDir);
+                        //if(f)
+                            //cout << myDir << " ";
+                        while(f)
                         {
-                            found = true;
+                            f.getline(line, 256);
+                            strlwr(line);
+                            if(strstr(line, pattern))
+                            {
+                                found = true;
+                            }
                         }
+                        if(found == true)
+                            cout << e->d_name << "\n";
                     }
-                    if(found == true)
-                        cout << e->d_name << "\n";
+                e = readdir(dir);
                 }
-            e = readdir(dir);
             }
-        }
+            else
+            if(strcmp(subfunc, "-l") == 0)
+            {
+                e = readdir(dir);
+                while(e != NULL)
+                {
+                    if(Extensie(e->d_name))
+                    {
+                        myDir[len] = 0;
+                        found = false;
+                        strcat(myDir, e->d_name);
+                        myDir[3] = myDir[2];
+                        ifstream f(myDir);
+                        //if(f)
+                            //cout << myDir << " ";
+                        while(f)
+                        {
+                            f.getline(line, 256);
+                            if(strstr(line, pattern))
+                            {
+                                found = true;
+                            }
+                        }
+                        if(found == true)
+                            cout << e->d_name << "\n";
+                    }
+                e = readdir(dir);
+                }
+            }
 
     }
     else
