@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <vector>
 #include <cstring>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ void peekPathDefault(string &a);
 
 void fileSize(string );
 
-void cp(char numeFisier[],char numeNou[]);
+void cp(char numeFisier[], char numeNou[]);
 
 void grep(char command []);
 
@@ -37,7 +38,7 @@ void getDefaultPath();
 
 void ls(DIR *);
 
-void cat(string fisiere[100], int, string, DIR *);
+void cat(string fisiere[100], int);
 
 vector <string> listaFolder(DIR *directorOarecare, string numeDirector);
 

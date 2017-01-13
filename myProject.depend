@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1484325822 source:c:\users\laur\desktop\projects\myproject\main.cpp
-	<iostream>
+1484342183 source:c:\users\laur\desktop\projects\myproject\main.cpp
 	"header.h"
 
-1484322255 c:\users\laur\desktop\projects\myproject\header.h
+1484342227 c:\users\laur\desktop\projects\myproject\header.h
 	<iostream>
 	<fstream>
 	<dirent.h>
@@ -11,7 +10,8 @@
 	<typeinfo>
 	<vector>
 	<cstring>
+	<stdlib.h>
 
-1484325353 source:c:\users\laur\desktop\projects\myproject\source.cpp
+1484343745 source:c:\users\laur\desktop\projects\myproject\source.cpp
 	"header.h"
 
