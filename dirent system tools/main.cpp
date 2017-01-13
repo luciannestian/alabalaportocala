@@ -1,94 +1,56 @@
+#include <iostream>
 #include "header.h"
 
+using namespace std;
 
-int main() {
-    ofstream fil("director1\\fili.mp3");
-    fil<<"11";
-   // ls(opendir("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1"));
-    //cout<<"\n sfarsit ls \n";
+int main()
+{
+    //CDinitial("D:\\");
 
-    //string a[100]={"file2","are","file1"};
-    /*  cout<<a->length()<<"\n";
-      for(int i=0;i<a->length();i++)
-          cout<<a[i].length()<< " ";*/
-    // cat(a,3);
+    string input;
+    char aux[256];
 
-    DIR *directorul_curent=opendir("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1");
-    string input="*.mp3";
-//    Parcurgere("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara",input);
-    //char *pathMare="C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1";
-   // ParcurgerePanaLaNivelulX(pathMare,input,0);
+    cin.getline(aux,256);
+    CDinitial("");
+    CD("Music");
 
-    //cout<<esteNumeValid(input,"C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara.mp2");
-
-
-    ///primele 2 elemente din vector sunt . si ..
-    vector <string> x=listaFolder(directorul_curent,"C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1");
-
-/*    for(int i=0;i<x.size();i++)
-        cout<<x[i]<<"\n";*/
-   // VerificareApartineFolder(x,"salami","*.txt");
-
-    /*///Deschidere(x);
-
-/*    for(int i=found+1;i<h.size();i++)
-        cout<<h[i];*/
-
-    //Deschidere(x);
-
-    //int alfa=x[2].find(".");
-    // cout<<x[2].substr(alfa);
 /*
-    string numeFisier="\\salam\\nume123.mp213";
-    numeFisier=numeDinLocatie(numeFisier);
-
-    int pozitie=numeFisier.find(".");
-
-    string fisierFaraExtensie=numeFisier.substr(0,pozitie);
-
-    cout<<fisierFaraExtensie;
+///INPUT GRESIT - VEDEM!
+    mv("fisier1.txt","/Music/fisier32.txt");
 */
 
-/*
+   // remove("/home/lucian/newfile.txt");
+///moved to...problem.
+    //mv("");
 
-    string newa="*.txt";
-    string b="C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1\\file1.txt";
-    cout<<'\n';
-    cout<<esteNumeValid(newa,b);
-*/
-/*
-    string xa;
-    getPlatform(xa);
-    cout << xa;
-*/
+    //Parcurgere("C:\\Users\\Laur\\Desktop", "*.txt");
 
-
-    string numedirectorcurent="C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent iara\\director1";
-/*
-    int found = numedirectorcurent.rfind("\\");
-    if(found) {
-        string numenou = numedirectorcurent.substr(0,found);
-        cout << numenou;
-    }*/
-    CDinitial("C:\\");
-   // CD("..");
-    //cout<<"\n\n\CD 2 \n\n";
-    cout<<"CD DOWNLOADS\n";
-
-
-    string lista[100]={"file1.txt","file2.txt"};
+/*    CDinitial("");
+    cout<<"DUPA CD INITIAL\n";
+    CD("Downloads");
+    cout<<"DUPA PRIMUL ..\n";
     CD("..");
-    CD("..");
-    cat(lista,2,"C:\\director1",opendir("C:\\"));
-   // cat(lista,2,"C:\\director1",opendir("C:\\director1"));
+    cout<<"DUPa al doilea ..\n";*/
 
-   /* ifstream fin;
-    fin.open("/home/lucian/Documents/text1.txt");
+   // fileSize("Music");
 
-    char lalala[255];
-    fin.getline(lalala,255);
-    fin.getline(lalala,255);
-    cout<<"\n||"<<lalala<<" ||";*/
+    //ofstream fin("/home/lucian/fisier.txt");
+    //fin<<"dsasdasda";
+    //grep(aux);
+    //ParcurgerePanaLaNivelulX("/home/lucian/","*.txt",1);
+
+/*    string alfa[30]={"fisier.txt","fisier2.txt","fisier32.txt"};
+    cat(alfa,3);*/
+    string input2;
+    char pro[255];
+
+    while(1)
+    {
+        cin.getline(pro,255);
+        input2=pro;
+        CD(input2);
+    }
+
 
     return 0;
 }

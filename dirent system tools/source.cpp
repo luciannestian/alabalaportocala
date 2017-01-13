@@ -1,4 +1,3 @@
-
 #include "header.h"
 #define arraysize(ar)  (sizeof(ar) / sizeof(ar[0]))
 
@@ -24,8 +23,8 @@ void CDinitial(string path)
         if(opendir(path.c_str()))
             directorDefault=opendir(path.c_str());
     }
-    //cout<<pathDefault<<"\n";
-   // ls(directorDefault);
+    cout<<pathDefault<<"\n";
+    // ls(directorDefault);
 /*    string x="*.flac";
     Parcurgere(pathDefault.c_str(),x);*/
 }
@@ -35,16 +34,17 @@ void CD(string input)
     getPlatform();
     //CDinitial("");
 
+
     if(input.compare("..")==0)
     {
         //un director inapoi
 //        string
-        if(platforma==1)
-            pathDefault.erase(pathDefault.length()-1);
+       /* if(platforma==1)
+            pathDefault.erase(pathDefault.length()-1);*/
 
         int found =pathDefault.rfind(slashkey);
         // cout<<"path inainte de prelucrare   "<<pathDefault;
-        //  cout<<" || found "<<found<<" || ";
+          cout<<" || found "<<found<<" || ";
 
         // cout<<pathDefault.length()<<" ";
         //cout<<found<<" ";
@@ -53,13 +53,15 @@ void CD(string input)
         if(found!=-1) {
             //cout<<pathDefault<<" ";
             string numenou = pathDefault.substr(0, found);
-            //cout <<"numenou "<< numenou<<"\n";
+            if(found==0)
+                numenou=slashkey;
+            cout <<"numenou "<< numenou<<"\n";
             pathDefault=numenou;
             numenou+=slashkey;
             // cout<<"numenou  "<<numenou<<"\n";
             directorDefault=opendir(numenou.c_str());
 
-            ls(directorDefault);
+            //ls(directorDefault);
             // Parcurgere(pathDefault.c_str(),"*.ttf");
         }
     }
@@ -67,14 +69,20 @@ void CD(string input)
     else {
         if(input.length()>1)
         {
-            pathDefault+=slashkey;
-            pathDefault+=input;
-            directorDefault=opendir(pathDefault.c_str());
-           // cout<<pathDefault<<"\n";
-            // ls(directorDefault);
-            ParcurgerePanaLaNivelulX(pathDefault.c_str(),"*.txt",1);
+            string nouPath=pathDefault+slashkey+input;
+            if(opendir(nouPath.c_str())!=0)
+            {
+                pathDefault+=slashkey;
+                pathDefault+=input;
+                directorDefault=opendir(pathDefault.c_str());
+                // cout<<pathDefault<<"\n";
+            }
+            //ParcurgerePanaLaNivelulX(pathDefault.c_str(),"*.txt",1);
+            //cout << directorDefault << "\n";
         }
     }
+    cout<<pathDefault<<" ";
+    ls(opendir(pathDefault.c_str()));
 }
 
 void getDefaultPath()
@@ -103,119 +111,137 @@ void ls(DIR *dir)
     }
 }
 
-
-
-void cat(string fisiere[100],int nr_fisiere,string numeDirectorCurent,DIR *directorDefault) {
-
+void cp(char numeFisier[],char numeNou[])
+{
+    //char myFile[256], newFile[256];
     getPlatform();
-/*    DIR *directorul_curent = opendir(
-            "C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1");*/
-    int indice_fisier;
+    string myFile,newFile;
+//command
+  //  char *p;
+/*
+    strcpy(myFile, pathDefault.c_str());
+    strcpy(newFile, pathDefault.c_str())*/;
+    myFile=pathDefault+slashkey+numeFisier;
+    newFile=pathDefault+slashkey+numeNou;
+    cout<<"cp\n";
+    cout<<myFile<<" ";
+    cout<<newFile<<"\n";
+    if(platforma==0) {
+    cout<<myFile<<" APOI NEW FILE ";
+    cout<<opendir(newFile.c_str())<<" ";
+    cout<<newFile<<"\n";
+    ifstream source(myFile, ios::binary);
+    ofstream dest(newFile, ios::binary);
+    cout<<"citire\n";
+    //cout<<source.rdbuf();
 
-    //dirent *end;
-    DIR *p = directorDefault;
+    dest << source.rdbuf();
 
-    //output trebuie sa fie directorul curent din cd
+    source.close();
+    dest.close();
+        myFile[3] = myFile[2];
+        newFile[3] = newFile[2]; //get C:\\, not C:
+        }
 
-    string pathFisierRezultat=pathDefault+slashkey+"fisier rezultat.txt";
 
-    ofstream output(pathFisierRezultat.c_str());
-    //cout<<pathFisierRezultat<<" ";
+ /*   p = strchr(command, ' ');
+    strcat(myFile, p + 1);
+    p = strchr(myFile, ' ');
+    strcat(newFile, p + 1);
+    *p = 0;
+ */
+    cout<<myFile<<" APOI NEW FILE ";
+    cout<<opendir(newFile.c_str())<<" ";
+    cout<<newFile<<"\n";
+    ifstream source(myFile.c_str(), ios::binary);
+    ofstream dest(newFile, ios::binary);
+    cout<<"citire\n";
+    //cout<<source.rdbuf();
 
-    //cout<<p<<" "<<"pasul "<<indice_fisier<<"\n";
-    dirent *end;
-    // dir = opendir ("C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1");
-    if ( p != NULL) {
-        end= readdir (p);
-        cout<<end->d_name<<" ";
-        while (end  != NULL) {
-            for (indice_fisier = 0; indice_fisier < nr_fisiere; indice_fisier++) {
-                //cout<<fisiere[indice_fisier]<<" ";
-                if(strcmp(fisiere[indice_fisier].c_str(),end->d_name)==0)
+    dest << source.rdbuf();
+
+    source.close();
+    dest.close();
+}
+
+void mv(char numeFisier[],char numeNou[])
+{
+    //char myFile[256], newFile[256];
+    getPlatform();
+    string myFile,newFile;
+//command
+    //  char *p;
+/*
+    strcpy(myFile, pathDefault.c_str());
+    strcpy(newFile, pathDefault.c_str())*/;
+    myFile=pathDefault+slashkey+numeFisier;
+    newFile=pathDefault+slashkey+numeNou;
+    cout<<"cp\n";
+    cout<<myFile<<" ";
+    cout<<newFile<<"\n";
+    if(platforma==0) {
+
+        myFile[3] = myFile[2];
+
+        newFile[3] = newFile[2]; //get C:\\, not C:
+    }
+
+    cout<<myFile<<" APOI NEW FILE ";
+    cout<<opendir(newFile.c_str())<<" ";
+    cout<<newFile<<"\n";
+    ifstream source(myFile.c_str(), ios::binary);
+    ofstream dest(newFile.c_str(), ios::binary);
+    cout<<"citire\n";
+    //cout<<source.rdbuf();
+
+    dest << source.rdbuf();
+
+    source.close();
+
+    string deleteFile(myFile);
+
+    remove(deleteFile.c_str());
+
+    //dest.close();
+
+    cout<<"\n DE STERS "<<deleteFile<<"\n";
+
+    dest.close();
+}
+
+
+void Parcurgere(const char *path,string input)
+{
+    getPlatform();
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir(path)) != NULL) {
+        while ((ent = readdir(dir)) != NULL) {
+            if ((strcmp(ent->d_name, "..") != 0) && (strcmp(ent->d_name, ".") != 0)) {
+
+                // printf("%s", ent->d_name);
+
+                char fullpath[300];
+                strcpy(fullpath, path);
+                strcat(fullpath, slashkey.c_str());
+
+                strcat(fullpath, ent->d_name);
+                string h=fullpath;
+                // cout<<h<<"\n";
+                if(esteNumeValid(input,h)==1)
+                    printf("%s",fullpath),printf("\n");
+
+
+                //if(ent->d_type == DT_DIR)
+                if(opendir(fullpath))
                 {
-                    cout<<"am gasit "<<end->d_name<<"\n";
-                    string locatieFisierGasit;
-
-                    locatieFisierGasit=numeDirectorCurent;
-                    locatieFisierGasit+=slashkey;
-                    locatieFisierGasit+=end->d_name;
-                    cout<<locatieFisierGasit<<"\n";
-                    ifstream fisierGasit1;//(locatieFisierGasit);
-                    fisierGasit1.open(locatieFisierGasit);
-
-                    string x;
-
-                    if(fisierGasit1.is_open()==true)
-                        while(fisierGasit1.eof()==false)
-                        {
-                            char h[255];
-                            fisierGasit1.getline(h,255);
-                            x+=h;
-                            x+="\n";
-                        }
-
-                    fisierGasit1.close();
-                    cout<< '|';
-                    cout<<x<<" ";
-
-                    //x.erase(x.end()-1);
-                    //windows
-                    //ultimul caracter face probleme
-                    output<<x;
-
-                    cout<<"se da citire din el "<<x<<"\n";
+                    Parcurgere(fullpath,input);
                 }
             }
-            end = readdir(p);
         }
-        closedir (p);
+        closedir(dir);
+
     }
-    else {
-        perror ("");
-    }
-   // Parcurgere(numeDirectorCurent.c_str(),"*.txt");
-    output.close();
-}
-
-
-vector <string> listaFolder(DIR *directorOarecare,string numeDirector)
-{
-    //ls
-    // string slashkey;///depinde de platforma
-    vector <string> lista;
-    //numeDirector.erase(numeDirector.end()-1);
-    dirent *end;
-    int indiceFisier=0;
-
-    if ( directorOarecare != NULL) {
-        end= readdir (directorOarecare);
-        while (end  != NULL) {
-            lista.push_back(numeDirector);
-            // strcat(lista[indiceFisier],slashKey);
-            lista[indiceFisier]+=slashkey;
-            string x=end->d_name;
-
-            lista[indiceFisier++]+=x;
-            //strcat(lista[indiceFisier],end->d_name);
-            end = readdir(directorOarecare);
-        }
-        closedir (directorOarecare);
-    }
-
-    return lista;
-}
-
-string numeDinLocatie(string nume)
-{
-    //string x;
-    //"C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1";
-
-    ///LINUX ARE ALT PATH
-    getPlatform();
-    size_t found=nume.rfind(slashkey.c_str());
-    string nou=nume.substr(found+1);
-    // cout<<nou;
-    return nou;
 }
 
 bool esteNumeValid(string input,string pathFisier)
@@ -258,76 +284,18 @@ bool esteNumeValid(string input,string pathFisier)
     return 1;
 }
 
-
-
-void VerificareApartineFolder(vector <string> listaFisiereDintrunFolder,string numeDirector,string input)
+string numeDinLocatie(string nume)
 {
-    //DIR *director;
-    for(int i=0;i<listaFisiereDintrunFolder.size();i++)
-    {
-/*        char * sir = new char[listaFisiereDintrunFolder[i].length() + 1];
-        strcpy(sir,listaFisiereDintrunFolder[i].c_str());*/
-        if(esteNumeValid(input,listaFisiereDintrunFolder[i])==1)
-            cout<<numeDirector<<"\\"<<listaFisiereDintrunFolder[i]<<"\n";///LINUX NU ARE "\\"
-    }
+    //string x;
+    //"C:\\Users\\aditi\\OneDrive\\Documents\\CLion Projects\\dirent system tools\\director1";
 
-    // director=opendir(listaFisiere[0]);
-}
-
-//daca e folder intru in el si returnez lista fisierelor apoi comparez cu ala de la input
-//daca nu merem mai departe , return 0
-/*
-
-void Parcurgere(string path)
-{
-    DIR* dir=opendir(path.c_str());
-    if(dir==NULL) return;
-    else
-    {
-        dirent *end=readdir(dir);
-        vector <string> lista=listaFolder(dir,path);
-
-
-    }
-
-}
-
-*/
-
-
-void Parcurgere(const char *path,string input)
-{
+    ///LINUX ARE ALT PATH
     getPlatform();
-    DIR *dir;
-    struct dirent *ent;
-    if ((dir = opendir(path)) != NULL) {
-        while ((ent = readdir(dir)) != NULL) {
-            if ((strcmp(ent->d_name, "..") != 0) && (strcmp(ent->d_name, ".") != 0)) {
-
-                // printf("%s", ent->d_name);
-
-                char fullpath[300];
-                strcpy(fullpath, path);
-                strcat(fullpath, slashkey.c_str());
-
-                strcat(fullpath, ent->d_name);
-                string h=fullpath;
-                // cout<<h<<"\n";
-                if(esteNumeValid(input,h)==1)
-                    printf("%s",fullpath),printf("\n");
-
-
-                if(ent->d_type == DT_DIR)
-                {
-                    Parcurgere(fullpath,input);
-                }
-            }
-        }
-        closedir(dir);
-
-    }
+    size_t found=nume.rfind(slashkey.c_str());
+    string nou=nume.substr(found+1);
+    // cout<<nou;
+    return nou;
 }
-
 
 void ParcurgerePanaLaNivelulX(const char *path,string input,int nivelInput)
 {
@@ -351,7 +319,7 @@ void ParcurgerePanaLaNivelulX(const char *path,string input,int nivelInput)
                     printf("%s",fullpath),printf("\n");
 
 
-                if(ent->d_type == DT_DIR)
+                if(opendir(fullpath))
                 {
                     if(nivelInput>0)
                     {
@@ -365,4 +333,263 @@ void ParcurgerePanaLaNivelulX(const char *path,string input,int nivelInput)
         closedir(dir);
 
     }
+}
+
+void fileSize(string filename)
+{
+    getPlatform();
+    string New = pathDefault + slashkey + filename;
+
+    cout<<New<<" ";
+    streampos begin,end;
+    ifstream file(New.c_str(), ios::binary);
+    if(file.is_open())
+    {
+        begin = file.tellg();
+        file.seekg (0, ios::end);
+        end = file.tellg();
+        cout << "Size of file: " << (end-begin) << " bytes.\n";
+    }
+    else
+        cout << "Cannot open this file.";
+    file.close();
+
+}
+bool Extensie(char ext[])
+{
+    int i;
+    for(i = 0; ext[i+1]; ++i)
+        if(ext[i] == '.')
+            return true;
+    return false;
+}
+void lower(char pattern[])
+{
+    int i;
+    for(i = 0; pattern[i]; ++i)
+        if(pattern[i] >= 'A' && pattern[i] <= 'Z')
+            pattern[i] += 32;
+}
+
+
+
+void grep(char command[])
+{
+    DIR *dir;
+    dir = opendir(pathDefault.c_str());
+
+    getPlatform();
+//extract info
+    char pattern[256];
+    char *p;
+
+    string myDir;
+    p = strchr(command, '"');
+    strcpy(pattern, p + 1);
+    p = strchr(pattern, '"');
+    *p = 0;
+
+    dirent *e;
+    //strcpy(myDir, pathDefault.c_str());
+    char line[256];
+    int n;
+    bool found;
+
+    if(dir != NULL)
+    {
+        if(strstr(command, "-n") && strstr(command, "-y"))
+        {
+            lower(pattern);
+            e = readdir(dir);
+            while(e != NULL)
+            {
+                if(Extensie(e->d_name))
+                {
+                    //myDir[len] = 0;
+                    found = false;
+                    n = 0;
+                    myDir = pathDefault + slashkey + e->d_name;
+                    ifstream f(myDir.c_str());
+                    //if(f)
+                    //cout << myDir << " ";
+                    while(f)
+                    {
+                        f.getline(line, 256);
+                        lower(line);
+                        if(strstr(line, pattern))
+                        {
+                            cout << n << "\n";
+                            found = true;
+                        }
+                        ++n;
+                    }
+                    if(found == true)
+                        cout << e->d_name << "\n";
+                }
+                e = readdir(dir);
+            }
+        }
+        else if(strstr(command, "-n"))
+        {
+            e = readdir(dir);
+            while(e != NULL)
+            {
+                if(Extensie(e->d_name))
+                {
+                    found = false;
+                    n = 0;
+                    myDir = pathDefault + slashkey + e->d_name;
+                    ifstream f(myDir.c_str());
+                    //if(f)
+                    //cout << myDir << " ";
+                    while(f)
+                    {
+                        f.getline(line, 256);
+                        if(strstr(line, pattern))
+                        {
+                            cout << n << "\n";
+                            found = true;
+                        }
+                        ++n;
+                    }
+                    if(found == true)
+                        cout << e->d_name << "\n";
+                }
+                e = readdir(dir);
+            }
+        }
+        else
+        if(strstr(command, "-y"))
+        {
+            e = readdir(dir);
+            lower(pattern);
+            while(e != NULL)
+            {
+                if(Extensie(e->d_name))
+                {
+                    found = false;
+                    myDir = pathDefault + slashkey + e->d_name;
+                    ifstream f(myDir.c_str());
+                    //if(f)
+                    //cout << myDir << " ";
+                    while(f)
+                    {
+                        f.getline(line, 256);
+                        lower(line);
+                        if(strstr(line, pattern))
+                        {
+                            found = true;
+                        }
+                    }
+                    if(found == true)
+                        cout << e->d_name << "\n";
+                }
+                e = readdir(dir);
+            }
+        }
+        else
+        if(strstr(command, "-l"))
+        {
+            e = readdir(dir);
+            while(e != NULL)
+            {
+                if(Extensie(e->d_name))
+                {
+                    //   myDir[len] = 0;
+                    found = false;
+                    myDir = pathDefault + slashkey + e->d_name;
+                    ifstream f(myDir.c_str());
+                    //if(f)
+                    cout << myDir << " ";
+                    while(f)
+                    {
+                        f.getline(line, 256);
+                        if(strstr(line, pattern))
+                        {
+                            found = true;
+                        }
+                    }
+                    if(found == true)
+                        cout << e->d_name << "\n";
+                }
+                e = readdir(dir);
+            }
+        }
+        closedir(dir);
+    }
+    else
+    {
+        perror("Unable to open dir.");
+        return ;
+    }
+
+}
+
+void cat(string fisiere[100],int nr_fisiere) {
+
+    getPlatform();
+
+    int indice_fisier;
+
+    //dirent *end;
+    DIR *p = opendir(pathDefault.c_str());
+
+    //output trebuie sa fie directorul curent din cd
+
+    string pathFisierRezultat=pathDefault+slashkey+"fisier rezultat.txt";
+
+    ofstream output(pathFisierRezultat.c_str());
+
+    dirent *end;
+
+    if ( p != NULL) {
+        end= readdir (p);
+        //cout<<end->d_name<<" ";
+        while (end  != NULL) {
+            for (indice_fisier = 0; indice_fisier < nr_fisiere; indice_fisier++) {
+                cout<<fisiere[indice_fisier]<<" ";
+                if(strcmp(fisiere[indice_fisier].c_str(),end->d_name)==0)
+                {
+                    cout<<"am gasit "<<end->d_name<<"\n";
+                    string locatieFisierGasit;
+
+                    locatieFisierGasit=pathDefault;
+                    locatieFisierGasit+=slashkey;
+                    locatieFisierGasit+=end->d_name;
+                    cout<<locatieFisierGasit<<"\n";
+                    ifstream fisierGasit1;//(locatieFisierGasit);
+                    fisierGasit1.open(locatieFisierGasit);
+
+                    string x;
+
+                    if(fisierGasit1.is_open()==true)
+                        while(fisierGasit1.eof()==false)
+                        {
+                            char h[255];
+                            fisierGasit1.getline(h,255);
+                            x+=h;
+                            x+="\n";
+                        }
+
+                    fisierGasit1.close();
+                    cout<< '|';
+                    cout<<x<<" ";
+
+                    //x.erase(x.end()-1);
+                    //windows
+                    //ultimul caracter face probleme
+                    output<<x;
+
+                    cout<<"se da citire din el "<<x<<"\n";
+                }
+            }
+            end = readdir(p);
+        }
+        closedir (p);
+    }
+    else {
+        perror ("");
+    }
+    // Parcurgere(numeDirectorCurent.c_str(),"*.txt");
+    output.close();
 }
