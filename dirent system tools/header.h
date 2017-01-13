@@ -12,22 +12,25 @@
 
 using namespace std;
 
-//string backslash;
-
-/*
-#ifdef OS_WINDOWS
-    backslash="\\";
-#else
-    string backslash="/";
-//define it for a Unix machine
+#ifdef __linux
+#define platforma 1
+#elif __WIN32
+#define platforma 0
 #endif
-*/
 
-//DIR *directorul_curent;
+//string slashkey;
+
+void getPlatform();
+
+void CDinitial(string  );
+
+void CD(string );
+
+void getDefaultPath();
 
 void ls(DIR *);
 
-void cat(string fisiere[100],int );
+void cat(string fisiere[100],int ,string,DIR *);
 
 vector <string> listaFolder(DIR *directorOarecare,string numeDirector);
 
@@ -37,7 +40,6 @@ string numeDinLocatie(string nume);
 
 bool esteNumeValid(string input,string pathFisier);
 
-void Parcurgere(char *,string);
+void Parcurgere(const char *,string);
 
-void ParcurgerePanaLaNivelulX(char *,string , int );
-
+void ParcurgerePanaLaNivelulX(const char *,string , int );
