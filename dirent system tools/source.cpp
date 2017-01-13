@@ -23,7 +23,7 @@ void CDinitial(string path)
         if(opendir(path.c_str()))
             directorDefault=opendir(path.c_str());
     }
-    cout<<pathDefault<<"\n";
+    cout<<pathDefault<<": ";
     // ls(directorDefault);
 /*    string x="*.flac";
     Parcurgere(pathDefault.c_str(),x);*/
@@ -44,7 +44,7 @@ void CD(string input)
 
         int found =pathDefault.rfind(slashkey);
         // cout<<"path inainte de prelucrare   "<<pathDefault;
-          cout<<" || found "<<found<<" || ";
+          //cout<<" || found "<<found<<" || ";
 
         // cout<<pathDefault.length()<<" ";
         //cout<<found<<" ";
@@ -55,7 +55,7 @@ void CD(string input)
             string numenou = pathDefault.substr(0, found);
             if(found==0)
                 numenou=slashkey;
-            cout <<"numenou "<< numenou<<"\n";
+           // cout <<"numenou "<< numenou<<"\n";
             pathDefault=numenou;
             numenou+=slashkey;
             // cout<<"numenou  "<<numenou<<"\n";
@@ -81,8 +81,8 @@ void CD(string input)
             //cout << directorDefault << "\n";
         }
     }
-    cout<<pathDefault<<" ";
-    ls(opendir(pathDefault.c_str()));
+    //cout<<pathDefault<<" ";
+   // ls(opendir(pathDefault.c_str()));
 }
 
 void getDefaultPath()
@@ -122,40 +122,24 @@ void cp(char numeFisier[],char numeNou[])
     strcpy(myFile, pathDefault.c_str());
     strcpy(newFile, pathDefault.c_str())*/;
     myFile=pathDefault+slashkey+numeFisier;
-    newFile=pathDefault+slashkey+numeNou;
-    cout<<"cp\n";
-    cout<<myFile<<" ";
-    cout<<newFile<<"\n";
-    if(platforma==0) {
-    cout<<myFile<<" APOI NEW FILE ";
-    cout<<opendir(newFile.c_str())<<" ";
-    cout<<newFile<<"\n";
-    ifstream source(myFile, ios::binary);
-    ofstream dest(newFile, ios::binary);
-    cout<<"citire\n";
-    //cout<<source.rdbuf();
+    newFile=numeNou;
 
-    dest << source.rdbuf();
-
-    source.close();
-    dest.close();
-        myFile[3] = myFile[2];
-        newFile[3] = newFile[2]; //get C:\\, not C:
-        }
-
-
- /*   p = strchr(command, ' ');
-    strcat(myFile, p + 1);
-    p = strchr(myFile, ' ');
-    strcat(newFile, p + 1);
-    *p = 0;
+ /*   if(platforma==0)
+    {
+        if(numeNou[1]==":")
+            newFile=numeNou;
+    }
  */
-    cout<<myFile<<" APOI NEW FILE ";
-    cout<<opendir(newFile.c_str())<<" ";
-    cout<<newFile<<"\n";
+    //cout<<"cp\n";
+    //cout<<myFile<<" ";
+    //cout<<newFile<<"\n";
+
+   // cout<<myFile<<" APOI NEW FILE ";
+    //cout<<opendir(newFile.c_str())<<" ";
+    //cout<<newFile<<"\n";
     ifstream source(myFile.c_str(), ios::binary);
     ofstream dest(newFile, ios::binary);
-    cout<<"citire\n";
+    //cout<<"citire\n";
     //cout<<source.rdbuf();
 
     dest << source.rdbuf();
@@ -166,33 +150,23 @@ void cp(char numeFisier[],char numeNou[])
 
 void mv(char numeFisier[],char numeNou[])
 {
-    //char myFile[256], newFile[256];
+   // char myFile[256], newFile[256];
     getPlatform();
     string myFile,newFile;
-//command
-    //  char *p;
-/*
-    strcpy(myFile, pathDefault.c_str());
-    strcpy(newFile, pathDefault.c_str())*/;
+
     myFile=pathDefault+slashkey+numeFisier;
-    newFile=pathDefault+slashkey+numeNou;
-    cout<<"cp\n";
-    cout<<myFile<<" ";
-    cout<<newFile<<"\n";
-    if(platforma==0) {
+    newFile=numeNou;
+
+ /*   if(platforma==0) {
 
         myFile[3] = myFile[2];
 
         newFile[3] = newFile[2]; //get C:\\, not C:
-    }
+    }*/
 
-    cout<<myFile<<" APOI NEW FILE ";
-    cout<<opendir(newFile.c_str())<<" ";
-    cout<<newFile<<"\n";
+
     ifstream source(myFile.c_str(), ios::binary);
     ofstream dest(newFile.c_str(), ios::binary);
-    cout<<"citire\n";
-    //cout<<source.rdbuf();
 
     dest << source.rdbuf();
 
@@ -204,7 +178,7 @@ void mv(char numeFisier[],char numeNou[])
 
     //dest.close();
 
-    cout<<"\n DE STERS "<<deleteFile<<"\n";
+   // cout<<"\n DE STERS "<<deleteFile<<"\n";
 
     dest.close();
 }
@@ -243,6 +217,7 @@ void Parcurgere(const char *path,string input)
 
     }
 }
+
 
 bool esteNumeValid(string input,string pathFisier)
 {
@@ -335,12 +310,13 @@ void ParcurgerePanaLaNivelulX(const char *path,string input,int nivelInput)
     }
 }
 
+
 void fileSize(string filename)
 {
     getPlatform();
     string New = pathDefault + slashkey + filename;
 
-    cout<<New<<" ";
+   // cout<<New<<" ";
     streampos begin,end;
     ifstream file(New.c_str(), ios::binary);
     if(file.is_open())
@@ -547,7 +523,7 @@ void cat(string fisiere[100],int nr_fisiere) {
         //cout<<end->d_name<<" ";
         while (end  != NULL) {
             for (indice_fisier = 0; indice_fisier < nr_fisiere; indice_fisier++) {
-                cout<<fisiere[indice_fisier]<<" ";
+                //cout<<fisiere[indice_fisier]<<" ";
                 if(strcmp(fisiere[indice_fisier].c_str(),end->d_name)==0)
                 {
                     cout<<"am gasit "<<end->d_name<<"\n";
@@ -572,15 +548,15 @@ void cat(string fisiere[100],int nr_fisiere) {
                         }
 
                     fisierGasit1.close();
-                    cout<< '|';
-                    cout<<x<<" ";
+                 //   cout<< '|';
+                  //  cout<<x<<" ";
 
                     //x.erase(x.end()-1);
                     //windows
                     //ultimul caracter face probleme
                     output<<x;
 
-                    cout<<"se da citire din el "<<x<<"\n";
+                    //cout<<"se da citire din el "<<x<<"\n";
                 }
             }
             end = readdir(p);
@@ -592,4 +568,9 @@ void cat(string fisiere[100],int nr_fisiere) {
     }
     // Parcurgere(numeDirectorCurent.c_str(),"*.txt");
     output.close();
+}
+
+void peekPathDefault(string &x)
+{
+    x=pathDefault;
 }

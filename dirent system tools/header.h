@@ -5,6 +5,7 @@
 #include <typeinfo>
 #include <vector>
 #include <cstring>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -51,3 +52,5 @@ void Parcurgere(const char *, string);
 void ParcurgerePanaLaNivelulX(const char *, string, int);
 
 void grep(char []);
+
+void peekPathDefault(string &);
