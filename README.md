@@ -1,6 +1,6 @@
 ##System tools
 
-Un utilitar pentru lucrul cu fișiere - similar celor din Linux - cu (minimal) următoarele
+Un utilitar scris C/C++ pentru lucrul cu fișiere - similar celor din Linux - cu (minimal) următoarele
 funcționalități:
 ##- cd
 -schimbarea directorului curent
